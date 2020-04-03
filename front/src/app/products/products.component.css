@@ -1,0 +1,29 @@
+.img{
+    cursor: pointer;
+}
+.img:hover{
+    opacity: 0.6;
+    box-shadow: 0 0 28px rgba(0,0,0,0.22), 0 10px 10px rgba(0,0,0,0.3) !important;
+}
+.img:active{
+    opacity: 0.4;
+}
+.quantite{
+    position: absolute;
+    z-index: 2;
+   margin-top: -25px; 
+   width: 100px;
+   height: 25px;
+}
+.cont{
+    position: absolute;
+    z-index: 2;
+    margin-left: 10px;
+   margin-top: 1px;
+   font-size: 20px;
+   color: black;
+}
+
+.progressbar{
+    width: 348px;
+}

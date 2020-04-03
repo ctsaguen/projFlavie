@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<catalog xmlns="urn:oasis:names:tc:entity:xmlns:xml:catalog" prefer="system">
+    <system systemId="file:/Users/flaviebilhac/Downloads/adventureISISServer/../../Desktop/worldSchema.xsd" uri="src/main/resources/jaxb/world/worldSchema.xsd"/>
+    <system systemId="file:/Users/flaviebilhac/Downloads/adventureISISServer/../../Documents/worldSchema.xsd" uri="src/main/resources/jaxb/world/worldSchema.xsd"/>
+</catalog>

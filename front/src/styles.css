@@ -1,0 +1,23 @@
+/* You can add global styles to this file, and also import other style files */
+
+body{
+    font-family: 'Mukta', sans-serif;
+    background-image: url(../src/assets/mcdoBack.jpg);
+	background-repeat: no-repeat;
+	background-size:cover;
+    background-position:center;
+    background-attachment:fixed;
+}
+
+.round {
+    width: 100px;
+    height: 100px;
+}
+
+.txt {
+    font-size: 20px;
+    color: aliceblue;
+}
+.txt2{
+    font-size: 20px;
+}
