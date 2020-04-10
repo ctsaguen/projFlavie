@@ -16,15 +16,13 @@ export class ProductsComponent implements OnInit {
   progressbarvalue: number = 0;
   maxAchat: number;
 
-  //cette variable sert à faire évoluer les seuils de bonus
   seuil: number;
-  //on récupére le produit du world
+
   product: Product;
   @Input()
   set prod(value: Product) {
     this.product = value;
 
-    //on initialise le coût d'achat
     this.maxAchat = this.product.cout;
 
     if (this.product.managerUnlocked && this.product.timeleft > 0) {
@@ -32,13 +30,11 @@ export class ProductsComponent implements OnInit {
       this.progressbarvalue = this.product.vitesse;
     }
   }
-  //on récupère les gains du joueur 
   _money: number;
   @Input()
   set money(value: number) {
     this._money = value;
   }
-  //on récupère la valeur du commutateur de quantité d'achat
   _qtmulti: number;
   @Input()
   set qtmulti(value: number) {
@@ -49,9 +45,7 @@ export class ProductsComponent implements OnInit {
       this._qtmulti = value;
     }
   }
-  //on renvoie à la couche mère le le Product en production 
   @Output() notifyProduction: EventEmitter<Product> = new EventEmitter<Product>();
-  //on renvoie à la couche mère le coût total du produit acheté 
   @Output() public notifyPurchase = new EventEmitter();
 
   constructor(private notifyService: NotificationService) { }
@@ -67,7 +61,6 @@ export class ProductsComponent implements OnInit {
 
 
   }
-  //fonction de production utilisé quand le joueur lance une production
   production() {
     if (this.product.quantite >= 1 && !this.isRun) {
       this.product.timeleft = this.product.vitesse;
@@ -75,13 +68,11 @@ export class ProductsComponent implements OnInit {
       this.isRun = true;
     }
   }
-  //calcul du score du joueur après une production, elle est lancé chaque 100ms par le hook ngOnInit et mis à jour les resultats 
   calcScore() {
     if (this.isRun) {
       if (this.product.timeleft > 0) {
         this.product.timeleft = this.product.timeleft - (Date.now() - this.lastupdate);
         this.progressbarvalue = this.product.vitesse
-        //this.progressbarvalue = ((this.product.vitesse - this.product.timeleft) / this.product.vitesse) * 100;
       }
       else {
         this.product.timeleft = 0;
@@ -96,7 +87,6 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  //cette fonction calcul la quantité maximal que que le joueur peut acheter en fonction de son argent
   calcMaxCanBuy(): number {
     let quantiteMax: number = 0;
     if (this.product.cout * this.product.croissance <= this._money) {
@@ -112,9 +102,7 @@ export class ProductsComponent implements OnInit {
 
   }
 
-  // cette fonction lance l'achat d'un produit
   achatProduct() {
-    //console.log(this.calcMaxCanBuy())
     var coutAchat = 0;
     if (this._qtmulti <= this.calcMaxCanBuy()) {
       coutAchat = this.product.cout * this._qtmulti;
@@ -122,7 +110,6 @@ export class ProductsComponent implements OnInit {
       this.product.revenu = (this.product.revenu / this.product.quantite) * (this.product.quantite + this._qtmulti);
       this.notifyPurchase.emit({cout: coutAchat, product: this.product });
       this.product.quantite = this.product.quantite + this._qtmulti;
-      //bonus d'achat spécifique à chaque produit
       this.product.palliers.pallier.forEach(value => {
         if (!value.unlocked && this.product.quantite > value.seuil) {
           this.product.palliers.pallier[this.product.palliers.pallier.indexOf(value)].unlocked = true;
@@ -133,7 +120,6 @@ export class ProductsComponent implements OnInit {
     }
   }
 
-  //ici on calcul si le joeur a débloqué un bonus et il y'a 3 type de bonus, à savoir vitesse, gain ou encore ange
   calcUpgrade(pallier: Pallier) {
     switch (pallier.typeratio) {
       case 'vitesse':

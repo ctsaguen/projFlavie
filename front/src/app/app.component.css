@@ -18,9 +18,8 @@
 }
 .navB{
   padding-bottom: 15px;
-   padding-top: 10px;
-   box-shadow: 0 0 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22) !important;
-   font-family: sans-serif;
+  padding-top: 10px;
+  font-family: sans-serif;
 }
 
 .money{
@@ -39,7 +38,6 @@
   margin-top: 25px;
 }
 .validInv{
-  background-color: #58355E;
   box-shadow: 0 0 20px rgba(0,0,0,0.10), 0 10px 10px rgba(0,0,0,0.10) !important;
   margin-left: 30px;
 }

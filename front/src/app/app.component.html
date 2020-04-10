@@ -1,16 +1,13 @@
 <div class="container-fluid">
-  <div class="row navB  bg-dark">
+  <div class="row navB">
     <div class="col-md-4">
-      <span><img src="../assets/mcdo.jpg" class="rounded-circle round" /> </span>
-      <!--<img [attr.src]="server+world.logo" class="rounded-circle round" />-->
-      <!--<span id="worldname"> {{world.name}} </span>-->
+      <span><img [attr.src]="server+world.logo" class="rounded-circle round" /> </span>
       <span style="margin-left: 10px;" class="txt text-warning text-uppercase font-weight-bold text-monospace"
         id="worldname"> {{world.name}}
       </span>
     </div>
-    <!--<div class="col-md-4"><span [innerHTML]="world.money | bigvalue"> </span></div>-->
     <div class="col-md-4 text-center txt" style="padding-top: 25px;">
-      <div class="money rounded">
+      <div class="money rounded text-warning">
         <span>$</span><span [innerHTML]="world.money | bigvalue"></span>
       </div>
     </div>
@@ -37,7 +34,7 @@
     </div>
   </div>
   <div style="margin-top: 40px;" class="row">
-    <div style="line-height: 100em;" class="col-md-2">
+    <div class="col-md-2">
       <button class="button btn btnCltr btn-success btn-block" data-toggle="modal" (click)="unlockModal.show()">Unlocks</button>
       <button class="button btn btnCltr btn-success btn-block" data-toggle="modal" (click)="upgradModal.show()"><span
           *ngIf="dispoUpgrad" class="badge text-warning">New</span>Cash
@@ -64,22 +61,22 @@
       <h4 class="modal-title">Investors !</h4>
     </div>
     <div style="color: aliceblue;" class="app-modal-body">
-      <div style="height: 80px; padding-top: 10px; background-color: #58355E;" class="row border rounded text-center">
+      <div style="height: 80px; padding-top: 10px;" class="row border rounded text-center bg-success">
         <span class="col-md-12">Your Total angels</span>
         <span style="font-size: 30px;" class="col-md-12">{{world.totalangels}}</span>
       </div>
       <div class="row">
-        <div style="height: 200px; padding-top: 40px; padding-left: 30px;" class="col-md-6 border bg-info rounded">
+        <div style="height: 200px; padding-top: 40px; padding-left: 30px;" class="col-md-6 border bg-primary rounded">
           <div class="row">
             <span style="font-size: 35px;" class="col-md-12 text-center">{{world.angelbonus}}%</span>
             <span style="margin-left: 20px;">Profit Bonus Per angel</span>
           </div>
         </div>
-        <div style="height: 200px; padding-top: 4px; padding-left: 15px;" class="col-md-6 border bg-info rounded">
+        <div style="height: 200px; padding-top: 4px; padding-left: 15px;" class="col-md-6 border bg-primary rounded">
           <div class="row">
             <span style="font-size: 35px;" class="col-md-12 text-center">{{world.activeangels}}</span>
             <span style="margin-left: 20px;">Angels Claimed with Restart</span>
-            <button class="col-md-9 btn text-white border rounded border-info validInv" (click)="claimAngel()">Claim</button>
+            <button class="col-md-9 btn btn-success text-white border rounded border-info validInv" (click)="claimAngel()">Claim</button>
             <span class="col-md-12 text-center">Restart Your businesses</span>
           </div>
         </div>
@@ -125,7 +122,7 @@
       <div *ngFor="let angel of world.angelupgrades.pallier">
         <div *ngIf="!angel.unlocked" class="row rounded notif">
           <div class="col-md-4">
-            <span><img src="../assets/angel.jpg" class="rounded-circle round"/> </span>
+            <span><img [attr.src]="server+angel.logo" class="rounded-circle round"/> </span>
           </div>
           <div class="col-md-5">
             <span class="txt2 row text-center font-weight-bold">{{angel.name}}</span>
@@ -152,7 +149,7 @@
       <div *ngFor="let upgrade of world.upgrades.pallier">
         <div *ngIf="!upgrade.unlocked" class="row rounded notif">
           <div class="col-md-4">
-            <span><img src="../assets/paris.jpg" class="rounded-circle round" /> </span>
+            <span><img [attr.src]="server+upgrade.logo" class="rounded-circle round" /> </span>
           </div>
           <div class="col-md-5">
             <span class="txt2 row text-center font-weight-bold">{{upgrade.name}}</span>
@@ -176,21 +173,29 @@
       <h4 class="modal-title">Unlock !</h4>
     </div>
     <div class="app-modal-body">
-      <div class="row">
-        <div *ngFor="let unlock of world.allunlocks.pallier" class="cardUnlock card col-md-5">
-          <div *ngIf="!unlock.unlocked">
-            <div class="card-header cardHead text-uppercase font-weight-bold d-flex justify-content-center">
-              {{unlock.typeratio}}</div>
-            <div style="padding: 0;" class="card-body d-flex justify-content-center">
-              <span><img src="../assets/paris.jpg" class="imgUnlock" /></span>
-            </div>
-            <div class="card-footer bg-primary footCard text-white">
-              <span class="text-uppercase font-weight-bold row d-flex justify-content-center">{{unlock.name}}</span>
-              <div class="row">
-                <span class="col d-flex justify-content-start">x{{unlock.ratio}}</span>
-                <span class="col d-flex justify-content-end font-italic text-warning">{{unlock.seuil}}</span>
-              </div>
-            </div>
+      <div *ngFor="let product of world.products.product"> 
+        <div *ngFor="let unlock of product.palliers.pallier">
+        <div *ngIf="!unlock.unlocked" class="row rounded notif">
+          <div class="col-md-4">
+            <span><img [attr.src]="server+unlock.logo" class="rounded-circle round"/> </span>
+          </div>
+          <div class="col-md-5">
+            <span class="txt2 row text-center font-weight-bold">{{unlock.name}}</span>
+            <span class="row text-center">x{{unlock.ratio}} for {{product.name}}</span>
+            <span class="row text-center">{{unlock.seuil}}</span>
+          </div>
+        </div>
+      </div>
+      </div>
+      <div *ngFor="let unlock of world.allunlocks.pallier">
+        <div *ngIf="!unlock.unlocked" class="row rounded notif">
+          <div class="col-md-4">
+            <span><img [attr.src]="server+unlock.logo" class="rounded-circle round"/> </span>
+          </div>
+          <div class="col-md-5">
+            <span class="txt2 row text-center font-weight-bold">{{unlock.name}}</span>
+            <span class="row text-center">x{{unlock.ratio}} for all</span>
+            <span class="row text-center">{{unlock.seuil}}</span>
           </div>
         </div>
       </div>
@@ -199,4 +204,5 @@
       <button type="button" class="btn btn-danger" (click)="unlockModal.hide()">Close</button>
     </div>
   </app-modal>
+
 </div>

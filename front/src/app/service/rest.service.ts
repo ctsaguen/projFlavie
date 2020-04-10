@@ -44,7 +44,6 @@ export class RestService {
   };
 
   public putManager(manager: Pallier): Promise<Response> {
-    // console.log(upgrade);
      return this.http
        .put(this.server + "generic/manager", manager, {
          headers: { "X-user": this.getUser() }
@@ -55,8 +54,7 @@ export class RestService {
    }
 
 
-  public putProduit(product: Product): Promise<Response> {
-     //console.log(product);
+  public putProduct(product: Product): Promise<Response> {
      return this.http
        .put(this.server + "generic/product", product, {
          headers: { "X-user": this.getUser() }
@@ -67,7 +65,6 @@ export class RestService {
    }
 
   public putUpgrade(upgrade: Pallier): Promise<Response> {
-   // console.log(upgrade);
     return this.http
       .put(this.server + "generic/upgrade", upgrade, {
         headers: { "X-user": this.getUser() }
@@ -78,7 +75,6 @@ export class RestService {
   }
 
   public putAngel(angel: Pallier): Promise<Response> {
-    // console.log(angel);
      return this.http
        .put(this.server + "generic/angelupgrade", angel, {
          headers: { "X-user": this.getUser() }
@@ -88,18 +84,6 @@ export class RestService {
        .catch(this.handleError);
    }
 
-  /*
-  public saveWorld(world: World): Promise<Response> {
-    // console.log(world);
-     return this.http
-       .put(this.server + "generic/world", world, {
-         headers: { "X-user": this.getUser() }
-       })
-       .toPromise()
-       .then(response => response)
-       .catch(this.handleError);
-   }
-*/
   public deleteWorld(): Promise<Response> {
     return this.http
       .delete(this.server + "generic/world", {
