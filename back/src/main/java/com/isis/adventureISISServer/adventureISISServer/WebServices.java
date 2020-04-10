@@ -16,6 +16,7 @@ import generated.PallierType;
 import generated.ProductType;
 import generated.World;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.io.InputStream;
 import javax.servlet.http.HttpServletRequest;
 import static javax.swing.text.html.FormSubmitEvent.MethodType.GET;
@@ -48,9 +49,11 @@ public class WebServices {
     @GET
     @Path("world")
     @Produces({MediaType.APPLICATION_XML, MediaType.APPLICATION_JSON})
-    public Response getXml(@Context HttpServletRequest request) throws JAXBException, FileNotFoundException {
-    String username = request.getHeader("X-user");
-    return Response.ok(services.getWorld(username)).build();
+    public Response getXml(@Context HttpServletRequest request) throws JAXBException, IOException {
+        String username = request.getHeader("X-user");
+        World world = services.getWorld(username);
+        services.saveWorldToXml(world, username);
+        return Response.ok(world).build();
     }
     
     @PUT

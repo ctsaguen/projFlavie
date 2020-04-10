@@ -91,7 +91,6 @@ public class Services {
         }
 
         w.setLastupdate(System.currentTimeMillis());
-        this.saveWorldToXml(w, pseudo);
         return this.readWorldFromXml(pseudo);
     }
     // prend en paramètre le pseudo du joueur et le produit

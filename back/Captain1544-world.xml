@@ -2,12 +2,12 @@
 <world>
     <name>MCDO CAPITALIST</name>
     <logo>mcdo.jpg</logo>
-    <money>15.0</money>
-    <score>15.0</score>
-    <totalangels>1.0</totalangels>
-    <activeangels>1.0</activeangels>
+    <money>0</money>
+    <score>0</score>
+    <totalangels>2</totalangels>
+    <activeangels>1</activeangels>
     <angelbonus>2</angelbonus>
-    <lastupdate>1585930397490</lastupdate>
+    <lastupdate>0</lastupdate>
     <products>
         <product>
             <id>1</id>
@@ -241,7 +241,7 @@
     <allunlocks>
         <pallier>
             <name>debloquerTout</name>
-            <logo>mcdo.jpg</logo>
+            <logo>gain.jpg</logo>
             <seuil>10000000</seuil>
             <idcible>0</idcible>
             <ratio>0.0</ratio>
@@ -251,7 +251,7 @@
     <upgrades>
         <pallier>
             <name>Cash Upgrades 1</name>
-            <logo></logo>
+            <logo>unlock1.jpg</logo>
             <seuil>100</seuil>
             <idcible>1</idcible>
             <ratio>2.0</ratio>
@@ -260,7 +260,7 @@
         </pallier>
         <pallier>
             <name>Cash Upgrades 2</name>
-            <logo></logo>
+            <logo>unlock2.jpg</logo>
             <seuil>1000</seuil>
             <idcible>1</idcible>
             <ratio>2.0</ratio>
@@ -269,7 +269,7 @@
         </pallier>
         <pallier>
             <name>Cash Upgrades 3</name>
-            <logo></logo>
+            <logo>unlock3.jpg</logo>
             <seuil>3000</seuil>
             <idcible>2</idcible>
             <ratio>2.0</ratio>
@@ -278,7 +278,7 @@
         </pallier>
         <pallier>
             <name>Cash Upgrades 4</name>
-            <logo></logo>
+            <logo>unlock4.jpg</logo>
             <seuil>6000</seuil>
             <idcible>1</idcible>
             <ratio>2.0</ratio>
@@ -287,7 +287,7 @@
         </pallier>
         <pallier>
             <name>Cash Upgrades 5</name>
-            <logo></logo>
+            <logo>unlock5.jpg</logo>
             <seuil>12000</seuil>
             <idcible>1</idcible>
             <ratio>2.0</ratio>
@@ -296,7 +296,7 @@
         </pallier>
         <pallier>
             <name>Cash Upgrades 6</name>
-            <logo></logo>
+            <logo>unlock6.jpg</logo>
             <seuil>15000</seuil>
             <idcible>1</idcible>
             <ratio>2.0</ratio>
@@ -305,7 +305,7 @@
         </pallier>
         <pallier>
             <name>Cash Upgrades 7</name>
-            <logo></logo>
+            <logo>unlock7.jpg</logo>
             <seuil>20000</seuil>
             <idcible>2</idcible>
             <ratio>2.0</ratio>
@@ -316,7 +316,7 @@
     <angelupgrades>
         <pallier>
             <name>Angel Upgrades 1</name>
-            <logo></logo>
+            <logo>angel.jpg</logo>
             <seuil>120000</seuil>
             <idcible>0</idcible>
             <ratio>2.0</ratio>
@@ -325,7 +325,7 @@
         </pallier>
         <pallier>
             <name>Angel Upgrades 2</name>
-            <logo></logo>
+            <logo>angel.jpg</logo>
             <seuil>240000</seuil>
             <idcible>0</idcible>
             <ratio>2.0</ratio>
@@ -334,7 +334,7 @@
         </pallier>
         <pallier>
             <name>Angel Upgrades 3</name>
-            <logo></logo>
+            <logo>angel.jpg</logo>
             <seuil>480000</seuil>
             <idcible>0</idcible>
             <ratio>2.0</ratio>
